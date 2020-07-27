@@ -1,6 +1,22 @@
 *{
     box-sizing: border-box;
 }
+
+button {
+    background-color: #48484e;
+    padding: 6px 8px;
+    color: #d9dfdf;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    opacity: .7;
+    cursor: pointer;
+}
+
+button:hover{
+    opacity: 1;
+}
+
 /* control module */
 .control{
     
@@ -37,14 +53,21 @@
     background: #252f2d;
     color: #747c7c;
     font-size: 13px;
+    transform: translateX(-100%);
+    transition: transform .3s;
 }
+
+.menu.open{
+    transform: translateX(0);
+}
+
 
 .menu .icon-close{
     position: absolute;
     right: 10px;
     top:10px;
     cursor: pointer;
-    transition: color #fff .3s;
+    transition: color .3s;
 }
 
 .menu .icon-close:hover{
@@ -71,7 +94,6 @@ color: #fff;
 }
 
 .menu .content{
-    display: none;
     position: absolute;
     left: 200px;
     width: calc(100vw - 180px);
@@ -80,12 +102,16 @@ color: #fff;
     top: 0;
     z-index: 999;
     font-size: 14px;
+    transform: translateX(calc(100% + 180px));
+    transition: transform .3s;
+    overflow: scroll;
 }
 
 
-.menu .detail .content.active{
-display: block;
+.menu.open .content.active{
+    transform: translateX(0);
 }
+
 
 .menu .content .header{
     font-size: 40px;
@@ -102,4 +128,45 @@ display: block;
 .menu .content textarea{
 width: 100%;
 height: 400px;
+    padding: 10px;
+    background: #49615c;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.menu .content button{
+    margin-top: 16px;
+}
+
+.menu .themes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.menu .themes figure{
+    margin-top: 30px;
+    text-align: center;
+    opacity: 0.7;
+    border: 4px solid transparent;
+    transition: .3s;
+}
+
+.menu .themes figure:hover{
+    opacity: 1;
+    border: 4px solid #ffffff;
+}
+
+.menu .themes figure img {
+    margin: 10px;
+    width: 200px;
+    height: 150px;
+}
+
+.menu .themes figcaption {
+    margin: 10px;
+
 }
