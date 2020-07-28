@@ -5,7 +5,7 @@ const isMain = str => (/^#{1,2}(?!#)/).test(str)
 const isSub = str => (/^#{3}(?!#)/).test(str)
 
 function convert(raw) {
-  let arr = raw.split(/\n(?=\s*#)/).filter(s => s !== "").map(s => s.trim())
+  let arr = raw.split(/\n(?=\s*#{1,3}[^#])/).filter(s => s !== "").map(s => s.trim())
 
   let html = ''
   for(let i=0; i<arr.length; i++) {
@@ -139,6 +139,7 @@ const Theme = {
   init(){
 
     this.$$figures = $$('.themes figure')
+
     this.bind()
     this.loadTheme()
   },
